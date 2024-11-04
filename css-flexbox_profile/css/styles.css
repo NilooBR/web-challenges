@@ -27,10 +27,11 @@ body {
 }
 
 .tech-stack__list {
+  list-style: none;
+  padding-left: 0;
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .tech-stack__list-item {

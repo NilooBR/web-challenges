@@ -23,7 +23,7 @@ body {
   border-radius: 50%;
   max-width: 50%;
   height: auto;
-  margin: 0 auto;
+  align-self: center;
 }
 
 .tech-stack__list {

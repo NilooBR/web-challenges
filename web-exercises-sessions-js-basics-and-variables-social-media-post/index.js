@@ -11,6 +11,12 @@ console.clear();
 
 // --v-- write your code here --v--
 
+const title = "Who is the president of the US?";
+const text = "Shockingly, it is Trump, the US president.";
+let numberOfLikes = 10;
+const user = "Niloo";
+const isReported = false;
+
 // --^-- write your code here --^--
 
 /*
@@ -18,5 +24,14 @@ console.clear();
 */
 
 // --v-- write your code here --v--
+console.log("What is the title of the social media post?:", title);
+console.log("What is the text inside the post?:", text);
+console.log("How many people like it?:", numberOfLikes);
+console.log("Who was the writer of the post?:", user);
+console.log("Is the post reported?:", isReported);
+
+// Increase likes by one and log again
+numberOfLikes ++ ;
+console.log("Updated number of likes:", numberOfLikes);
 
 // --^-- write your code here --^--

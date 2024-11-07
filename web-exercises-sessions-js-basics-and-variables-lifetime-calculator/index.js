@@ -19,22 +19,17 @@ const currentAge = Number(process.argv[2]); // this gives you the <age> the user
 console.log("Your current age is: " + currentAge);
 
 // 1. The number of days the person has lived.
-const daysInYear = 365;
-const daysLived = currentAge * daysInYear;
+const daysLived = currentAge * 365;
 console.log("You have lived " + daysLived + " days.");
 
 // 2. The expected number of remaining days for the person. Use an expected life span of 80 years.
-const lifeExpectancy = 80;
-const remainingYears = lifeExpectancy - currentAge;
-const remainingDays = remainingYears * daysInYear;
-console.log("You have " + remainingDays + " days remaining, based on a life expectancy of " + lifeExpectancy + " years.");
+const remainingDays = (80 * 365) - currentAge;
+console.log("You have " + remainingDays + " days remaining");
 
 // 3. The percentage of already lived days in relation to the life expectancy.
-const percentageLived = (daysLived / (lifeExpectancy * daysInYear)) * 100;
-console.log("You have already lived " + percentageLived + "% of your expected life span.");
+const percentageLivedDays = (daysLived / (80 * 365)) * 100;
+console.log("You have already lived " + percentageLivedDays + "% of your expected life.");
 
 // 4. The cumulative number of days the person already slept in their life. Assume the person sleeps on average 8 hours per day.
-const sleepHoursPerDay = 8;
-const hoursSlept = daysLived * sleepHoursPerDay; // total hours slept
-const daysSlept = hoursSlept / 24; // hours to days
+const daysSlept = (daysLived * 8) / 24;
 console.log("You have already slept " + daysSlept + " days in your life.");

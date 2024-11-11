@@ -4,9 +4,11 @@ console.clear();
 // Create an object `personWithNameAgeEmail` with the properties "name", "age" and "email".
 
 const personWithNameAgeEmail = {
-  example: "example",
+  name: "Niloofar",
+  age: 32,
+  email: "niloo.bagherinezhad@example.com"
 };
-
+console.log(personWithNameAgeEmail);
 // EXERCISE 2
 // Set the values of `nameOfAlex` and `ageOfAlex` to match the corresponding values in the `personAlex` object.
 
@@ -15,8 +17,12 @@ const personAlex = {
   age: 24,
 };
 
-const nameOfAlex = "Change me";
-const ageOfAlex = "Change me";
+let nameOfAlex = personAlex.name;
+let ageOfAlex = personAlex.age;
+
+console.log(nameOfAlex);
+console.log(ageOfAlex);
+
 
 // EXERCISE 3
 // Change the `name` to "Alex" and `age` to "35" by updating the `personToChange`object: `person.existingProperty = newValue`.
@@ -26,6 +32,11 @@ const personToChange = {
   age: 24,
 };
 
+personToChange.name = "Alex";
+personToChange.age = 35;
+
+console.log(personToChange);
+
 // EXERCISE 4
 // Add the properties `age` with value "5" and `breed` with value "husky" to the `petPluto` object: `pet.newProperty = newValue`.
 
@@ -33,6 +44,11 @@ const petPluto = {
   name: "Pluto",
   species: "dog",
 };
+
+petPluto.age = 5;
+petPluto.breed = "husky";
+
+console.log(petPluto);
 
 export {
   personWithNameAgeEmail,

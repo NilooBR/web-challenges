@@ -6,7 +6,9 @@ console.clear();
    The formula is: square = number * number
 */
 
-function printSquare(number) {}
+function printSquare(number) {
+  console.log("square = ", number * number);
+}
 
 printSquare(3);
 printSquare(5);
@@ -22,6 +24,12 @@ printSquare(5);
 // printCircumference(4);
 // printCircumference(6);
 
+function printCircumference(radius) {
+  console.log("circumference = ", 2 * Math.PI * radius);
+}
+printCircumference(4);
+printCircumference(6);
+
 /*
 3: We want to use a function which accepts the width and length of a rectangle
    and prints the following text to the console: "The area of the rectangle is ?".
@@ -34,3 +42,9 @@ printSquare(5);
 
 // printRectangleArea(5, 7);
 // printRectangleArea(3, 4);
+
+function printRectangleArea(width, length) {
+  console.log("area = ", width * length);
+}
+printRectangleArea(5, 7);
+printRectangleArea(3, 4);

@@ -4,12 +4,54 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Personal Profile Form</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <section></section>
+    <section>
+      <h2>
+        We want to get to know you! Please enter your personal information.
+      </h2>
+      <form>
+        <fieldset aria-describedby="personal-info">
+          <legend>Personal Information</legend>
+          <label for="first-name">First Name: </label>
+          <input type="text" id="first-name" name="first-name" />
+
+          <label for="last-name">Last Name: </label>
+          <input type="text" id="last-name" name="last-name" />
+
+          <label for="birth-date">Your Birthday: </label>
+          <input type="date" id="birth-date" name="birth-date" />
+        </fieldset>
+
+        <h2>
+          Can you tell us a little bit more? We want to annoy you with unwanted
+          ads
+        </h2>
+
+        <fieldset aria-describedby="further-info">
+          <legend>Further Information</legend>
+          <label for="favorite-color">Choose your favorite color:</label>
+          <input
+            type="color"
+            id="favorite-color"
+            name="favorite-color"
+            value="#E54310" />
+
+          <label for="favorite-pet">What's your favorite pet?</label>
+          <select>
+            <option value="">--Please choose an option--</option>
+            <option value="option1" required>Cat🐱</option>
+            <option value="option2" required>Dog🐶</option>
+          </select>
+        </fieldset>
+        <input
+          type="submit"
+          value="Submit"
+          style="background-color: #e54310; color: white" />
+      </form>
+    </section>
   </body>
 </html>

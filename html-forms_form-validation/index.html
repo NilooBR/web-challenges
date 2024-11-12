@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>HTML Forms</title>
     <link rel="stylesheet" href="./css/styles.css" />
     <script src="./js/index.js" defer></script>
@@ -32,7 +31,7 @@
             name="firstName"
             id="first-name"
             placeholder="Your first name"
-          />
+            required />
 
           <label for="last-name">Last Name</label>
           <input
@@ -40,13 +39,24 @@
             name="lastName"
             id="last-name"
             placeholder="Your last name"
-          />
+            required />
 
           <label for="age">Age</label>
-          <input type="number" name="age" id="age" />
+          <input
+            type="number"
+            name="age"
+            id="age"
+            min="14"
+            placeholder="Enter your age"
+            required />
 
           <label for="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            required />
         </fieldset>
 
         <fieldset>
@@ -66,8 +76,7 @@
           <textarea
             name="details"
             id="details"
-            placeholder="Please provide as much detail as possible"
-          ></textarea>
+            placeholder="Please provide as much detail as possible"></textarea>
 
           <label for="badness"
             >How bad was your experience? (On a scale from <q>meh</q> to
@@ -79,8 +88,7 @@
             type="range"
             min="1"
             max="100"
-            value="100"
-          />
+            value="100" />
 
           <label for="order-date">Order Date</label>
           <input type="date" name="orderDate" id="order-date" />
@@ -90,13 +98,12 @@
               type="checkbox"
               name="terms-of-service"
               id="terms-of-service"
-            />
+              required />
             I have read the terms of service and agree to sell my soul
             <a
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               target="_blank"
-              rel="noreferrer noopener"
-            >
+              rel="noreferrer noopener">
               (click here for more info)
             </a>
           </label>

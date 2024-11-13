@@ -33,8 +33,8 @@ form.addEventListener("submit", (evt) => {
     const formElements = evt.target.elements;
     const data = {
         firstName: formElements.firstName.value,
-        age: parseFloat(formElements.age.value),
-        badness: parseFloat(formElements.badness.value)
+        age: Number(formElements.age.value),
+        badness: Number(formElements.badness.value)
     };
     const ageBadnessSum = data.age + data.badness;
 

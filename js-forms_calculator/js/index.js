@@ -27,8 +27,8 @@ form.addEventListener("submit", (event) => {
 
   let result;
 
-  const numberA = form.numberA.value;
-  const numberB = form.numberB.value;
+  const numberA = parseFloat(form.numberA.value);
+  const numberB = parseFloat(form.numberB.value);
   const operator = form.operator.value;
 
   if (operator === "addition") {

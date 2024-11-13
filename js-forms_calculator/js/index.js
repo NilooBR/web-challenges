@@ -16,6 +16,9 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+  if (b === 0) {
+    return 'Error: Division by zero';
+  }
   return a / b;
 }
 
@@ -24,9 +27,19 @@ form.addEventListener("submit", (event) => {
 
   let result;
 
-  // --v-- write your code here --v--
+  const numberA = form.numberA.value;
+  const numberB = form.numberB.value;
+  const operator = form.operator.value;
 
-  // --^-- write your code here --^--
+  if (operator === "addition") {
+    result = add(numberA, numberB);
+  } else if (operator === "subtraction") {
+    result = subtract(numberA, numberB);
+  } else if (operator === "multiplication") {
+    result = multiply(numberA, numberB);
+  } else if (operator === "division") {
+    result = divide(numberA, numberB);
+  }
 
   resultOutput.textContent = result;
 });

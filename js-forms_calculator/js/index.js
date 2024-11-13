@@ -27,9 +27,12 @@ form.addEventListener("submit", (event) => {
 
   let result;
 
-  const numberA = Number(form.numberA.value);
-  const numberB = Number(form.numberB.value);
-  const operator = form.operator.value;
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData);
+
+  const numberA = Number(data.numberA);
+  const numberB = Number(data.numberB);
+  const operator = data;
 
   if (operator === "addition") {
     result = add(numberA, numberB);

@@ -37,10 +37,18 @@ const EXAMPLE_DATA = {
 const firstCard = Card(EXAMPLE_DATA);
 renderElement(firstCard);
 
-fetchDataAndRender();
-
 // --v-- your code below this line --v--
+const url = "https://swapi.py4e.com/api/people/";
+async function fetchDataAndRender() {
+  const response = await fetch(url);
+  const data = await response.json();
 
-function fetchDataAndRender() {
-  fetch(); // ?
+  console.log(data);
+
+  data.results.forEach((character) => {
+    const card = Card(character);
+    renderElement(card);
+  });
 }
+
+fetchDataAndRender();

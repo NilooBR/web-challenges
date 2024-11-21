@@ -17,7 +17,12 @@ console.log(maxOfTwoNumbers(4,6));
 const words = ["Jaws", "Up", "Alien", "Gravity", "Inception", "Psycho",];
 
 function findLongestWord(words) {
-  // TODO: 
+  // TODO:
+  // if (words.length === 0) {
+  //   return null;
+  // }
+  // let longestWord = words[0]
+
   let longestWord = ""
   for(let i = 0; i < words.length; i++) {
     if (words[i].length > longestWord.length){
@@ -56,7 +61,12 @@ const words2 = [
 ];
 
 function averageWordLength(words) {
-  // TODO:
+  // if (words.length === 0) {
+  //   return null;
+  // }
+  // const totalLength = words.reduce((sum, word) => sum + word.length, 0);
+  // return totalLength / words.length;
+
   let totalLenght = 0;
   for(let i = 0; i< words.length; i++){
     totalLenght += words[i].length;
@@ -65,7 +75,6 @@ function averageWordLength(words) {
   return average;
 }
 console.log(averageWordLength(words2));
-// Unique arrays - return an array without duplicates
 
 const words3 = [
   'crab',
@@ -189,7 +198,24 @@ const matrix = [
 
 function greatestProduct(matrix) {
   // TODO:
+  let greatestProduct = 0
+  //horizontally
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length - 3; j++){
+      let product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+      greatestProduct = Math.max(greatestProduct,product)
+    }
+  }
+  //vertically
+  for(let j = 0; j < matrix[0].length; j++){
+    for(let i = 0; i < matrix.length - 3; i++){
+      let product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+      greatestProduct = Math.max(greatestProduct,product)
+    }
+  }
+  return greatestProduct;
 }
+console.log(greatestProduct(matrix));
 
 
 module.exports = {

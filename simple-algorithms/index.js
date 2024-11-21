@@ -1,7 +1,15 @@
 // Find the maximum
 function maxOfTwoNumbers(num1, num2) {
-  // TODO:  
+  // TODO:
+  let maxOfTwoNumber = "";
+  if (num1 > num2){
+    maxOfTwoNumber = num1;
+  } else {
+    maxOfTwoNumber = num2;
+  }
+  return maxOfTwoNumber;
 }
+console.log(maxOfTwoNumbers(4,6));
 
 
 // Find the longest word
@@ -9,17 +17,34 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ["Jaws", "Up", "Alien", "Gravity", "Inception", "Psycho",];
 
 function findLongestWord(words) {
-  // TODO:  
+  // TODO:
+  // if (words.length === 0) {
+  //   return null;
+  // }
+  // let longestWord = words[0]
+
+  let longestWord = ""
+  for(let i = 0; i < words.length; i++) {
+    if (words[i].length > longestWord.length){
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
 }
+console.log(findLongestWord(words));
 
 // Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  // TODO:  
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  return sum;
 }
-
+console.log(sumNumbers(numbers));
 // Calculate the average length of the words 
 
 const words2 = [
@@ -36,10 +61,20 @@ const words2 = [
 ];
 
 function averageWordLength(words) {
-  // TODO:
-}
+  // if (words.length === 0) {
+  //   return null;
+  // }
+  // const totalLength = words.reduce((sum, word) => sum + word.length, 0);
+  // return totalLength / words.length;
 
-// Unique arrays - return an array without duplicates
+  let totalLenght = 0;
+  for(let i = 0; i< words.length; i++){
+    totalLenght += words[i].length;
+  }
+  const average = totalLenght / words.length;
+  return average;
+}
+console.log(averageWordLength(words2));
 
 const words3 = [
   'crab',
@@ -57,15 +92,26 @@ const words3 = [
 
 function uniquifyArray(words) {
   // TODO:
+  const uniqueWords = [];
+  for (let i = 0; i < words.length; i++) {
+    if (!uniqueWords.includes(words[i])) {
+      uniqueWords.push(words[i]);
+    }
+  }
+  return uniqueWords;
 }
+console.log(uniquifyArray(words3));
 
 // Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(haystack, needle) {
   // TODO:
+  return haystack.includes(needle);
 }
-
+console.log(doesWordExist(wordsFind, "subset"));
+console.log(doesWordExist(wordsFind, "eating"));
+console.log(doesWordExist(wordsFind, "needle"));
 // Count repetition
 
 const wordsCount = [
@@ -83,8 +129,17 @@ const wordsCount = [
 ];
 
 function howManyTimes(haystack, needle) {
-  // TODO:
+  let count = 0;
+  haystack.forEach(word => {
+    if (word === needle) {
+      count++;
+    }
+  });
+  return count;
 }
+console.log(howManyTimes(wordsCount,"machine"));
+console.log(howManyTimes(wordsCount,"matter"));
+console.log(howManyTimes(wordsCount,"needle"));
 
 // Bonus: A generic sum function
 // for strings use the length of the string, for booleans use 1 and 0
@@ -102,9 +157,19 @@ const mixedArray = [
 ];
 
 function sum(array) {
-  // TODO:
+  let total = 0;
+  array.forEach(e => {
+    if (typeof e === "string") {
+      total += e.length;
+    } else if (typeof e === "number") {
+      total += e;
+    } else if (typeof e === "boolean") {
+      total += e ? 1 : 0;
+    }
+  });
+  return total;
 }
-
+console.log(sum(mixedArray));
 // Bonus: Write a function that calculates the greatest product of four
 // numbers that is either horizontally or vertically in the array
 
@@ -133,7 +198,24 @@ const matrix = [
 
 function greatestProduct(matrix) {
   // TODO:
+  let greatestProduct = 0
+  //horizontally
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length - 3; j++){
+      let product = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+      greatestProduct = Math.max(greatestProduct,product)
+    }
+  }
+  //vertically
+  for(let j = 0; j < matrix[0].length; j++){
+    for(let i = 0; i < matrix.length - 3; i++){
+      let product = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+      greatestProduct = Math.max(greatestProduct,product)
+    }
+  }
+  return greatestProduct;
 }
+console.log(greatestProduct(matrix));
 
 
 module.exports = {

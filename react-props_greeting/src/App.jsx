@@ -10,9 +10,15 @@ export default function App() {
 }
 
 function Greeting({ name }) {
+  const coaches = ["Klaus", "Pete", "Gimena","Felix","Andrea"]
+  const isCoach = coaches.includes(name);
+
+  console.log(isCoach);
+  console.log(coaches);
+  console.log("isCoach: ", name, isCoach);
   return (
     <h1>
-      {name === "Coach" ? "Hello, Coach!" : `Hello, ${name}!`}
+      Hello, {isCoach ? "Couch" : name}!
     </h1>
   );
 }

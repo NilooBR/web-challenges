@@ -3,7 +3,7 @@ import "./styles.css";
 
 export default function App() {
   return (
-    <div className="App">
+    <div>
       <Button color="blue" disabled={false} text="Click Me" />
       <Button color="red" disabled={true} text="Disabled" />
       <Button color="green" disabled={false} text="Click Me" />

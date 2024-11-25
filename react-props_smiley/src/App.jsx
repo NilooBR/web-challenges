@@ -3,8 +3,8 @@ import "./styles.css";
 
 export default function App() {
   return (
-    <div className="App">
-      <Smiley isHappy={true} />
+    <div>
+      <Smiley isHappy />
       <Smiley isHappy={false} />
     </div>
   );

@@ -1,3 +1,6 @@
+import React from "react";
+import "./styles.css";
+
 function HelloWorldArticle() {
   return (
     <article>

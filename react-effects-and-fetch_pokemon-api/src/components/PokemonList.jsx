@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function PokemonList() {
   const [pokemon, setPokemon] = useState([]);
+
+  useEffect(()=>{
+    loadPokemon()
+  },[])
 
   async function loadPokemon() {
     try {
@@ -15,9 +19,6 @@ export default function PokemonList() {
 
   return (
     <main>
-      <button type="button" onClick={loadPokemon}>
-        Load Pokémon
-      </button>
       <ul>
         {pokemon.map(({ name }) => (
           <li key={name}>{name}</li>

@@ -13,7 +13,7 @@ const StyledList = styled.ul`
   gap: 1rem;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
   &:hover {

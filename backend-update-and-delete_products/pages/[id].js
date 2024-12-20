@@ -63,12 +63,17 @@ export default function Product() {
           </li>
         ))}
       </ul>
-      <StyledButton onClick={() => setShowEditForm(!showEditForm)}>EDIT</StyledButton>
+      <StyledButton onClick={() => setShowEditForm(!showEditForm)}>
+        EDIT
+      </StyledButton>
       <StyledButton onClick={handleDeleteProduct}>DELETE</StyledButton>
       {showEditForm && (
         <ProductForm
           onSubmit={handleEditProduct}
-          values={data}
+          nameValue={data.name}
+          descriptionValue={data.description}
+          priceValue={data.price}
+          currencyValue={data.currency}
           isEditMode={true}
         />
       )}

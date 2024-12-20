@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import StyledButton from "@/components/Button";
 
-const value = {name: "",description: "", price: 0, currency: ""};
-export default function ProductForm({onSubmit, values = value, isEditMode = false}) {
+export default function ProductForm({
+  onSubmit,
+  nameValue,
+  descriptionValue,
+  priceValue,
+  currencyValue,
+  isEditMode = false,
+}) {
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -18,7 +24,7 @@ export default function ProductForm({onSubmit, values = value, isEditMode = fals
       </StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
-        <input type="text" id="name" name="name" defaultValue={values.name} />
+        <input type="text" id="name" name="name" defaultValue={nameValue} />
       </StyledLabel>
       <StyledLabel htmlFor="description">
         Description:
@@ -26,7 +32,7 @@ export default function ProductForm({onSubmit, values = value, isEditMode = fals
           type="text"
           id="description"
           name="description"
-          defaultValue={values.description}
+          defaultValue={descriptionValue}
         />
       </StyledLabel>
       <StyledLabel htmlFor="price">
@@ -36,12 +42,12 @@ export default function ProductForm({onSubmit, values = value, isEditMode = fals
           id="price"
           name="price"
           min="0"
-          defaultValue={values.price}
+          defaultValue={priceValue}
         />
       </StyledLabel>
       <StyledLabel htmlFor="currency">
         Currency:
-        <select id="currency" name="currency" defaultValue={values.currency}>
+        <select id="currency" name="currency" defaultValue={currencyValue}>
           <option value="EUR">EUR</option>
           <option value="USD">USD</option>
           <option value="GBP">GBP</option>

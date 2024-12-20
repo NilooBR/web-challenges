@@ -1,13 +1,43 @@
+import { useState } from "react";
 import useSWR from "swr";
-import styled from "styled-components";
 import { useRouter } from "next/router";
-import StyledLink from "@/components/Link";
+import styled from "styled-components";
+import StyledLink from "@/components/Link/";
+import Comments from "@/components/Comments";
+import ProductForm from "@/components/ProductForm";
+import StyledButton from "@/components/Button";
 
 export default function Product() {
+  const [showEditForm, setShowEditForm] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading } = useSWR(`/api/products/${id}`);
+  const { data, isLoading, mutate } = useSWR(`/api/products/${id}`);
+
+  async function handleEditProduct(productData) {
+    const response = await fetch(`api/products/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productData),
+    });
+
+    if (response.ok) {
+      mutate();
+      setShowEditForm(false);
+    }
+  }
+
+  async function handleDeleteProduct() {
+    const response = await fetch(`api/products/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      router.push("/");
+    }
+  }
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -24,6 +54,29 @@ export default function Product() {
       <p>
         Price: {data.price} {data.currency}
       </p>
+      <p>Reviews:</p>
+      <ul>
+        {data.reviews.map((review) => (
+          <li key={review._id}>
+            <strong>{review.title}</strong>: {review.text} <br />
+            Rating: {review.rating} ⭐
+          </li>
+        ))}
+      </ul>
+      <StyledButton onClick={() => setShowEditForm(!showEditForm)}>
+        EDIT
+      </StyledButton>
+      <StyledButton onClick={handleDeleteProduct}>DELETE</StyledButton>
+      {showEditForm && (
+        <ProductForm
+          onSubmit={handleEditProduct}
+          nameValue={data.name}
+          descriptionValue={data.description}
+          priceValue={data.price}
+          currencyValue={data.currency}
+          isEditMode={true}
+        />
+      )}
       <StyledLink href="/">Back to all</StyledLink>
     </ProductCard>
   );
